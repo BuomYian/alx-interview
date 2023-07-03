@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module to compute pascal triangle
+"""
+
+
 def pascal_triangle(n):
     """
     Generate Pascal's triangle of size n.
