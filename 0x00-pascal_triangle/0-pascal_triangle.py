@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def pascal_triangle(n):
     """
     Generate Pascal's triangle of size n.
@@ -10,12 +9,15 @@ def pascal_triangle(n):
     Returns:
         list: A list of lists representing Pascal's triangle.
 
+    Raises:
+        ValueError: If n is not a positive integer.
+
     Notes:
         - Returns an empty list if n <= 0.
     """
 
-    if n <= 0:
-        return []  # Return an empty list if n <= 0
+    if not isinstance(n, int) or n <= 0:
+        return []  # Return an empty list if n is not a positive integer
 
     triangle = [[1]]  # Initialize the triangle with the first row [1]
 
