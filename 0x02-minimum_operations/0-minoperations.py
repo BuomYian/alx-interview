@@ -19,7 +19,6 @@ def minOperations(n):
     if n <= 1:
         return 0
 
-    operations = 0
     factors = []
 
     for i in range(2, int(math.sqrt(n)) + 1):
