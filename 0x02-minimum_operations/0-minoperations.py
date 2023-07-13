@@ -4,6 +4,8 @@ Module for calculating the fewest number of
 operations to reach 'n' H characters
 """
 
+import math
+
 
 def minOperations(n):
     """
@@ -19,12 +21,14 @@ def minOperations(n):
         return 0
 
     operations = 0
-    paste_buffer = 1  # The initial content in the paste buffer
+    factors = []
 
-    while paste_buffer < n:
-        if n % paste_buffer == 0:
-            paste_buffer = n
-        operations += 1
-        paste_buffer += paste_buffer
+    for i in range(2, int(math.sqrt(n)) + 1):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
 
-    return operations
+    if n > 1:
+        factors.append(n)
+
+    return sum(factors)
