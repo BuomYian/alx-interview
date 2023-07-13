@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Module for calculating the fewest number of 
-operations to reach 'n' H characters
+Module for calculating the fewest number of operations to reach 'n'
 """
 
 import math
