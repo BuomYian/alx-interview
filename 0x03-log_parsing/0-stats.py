@@ -1,17 +1,34 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
-A script that reads stdin line by line and computes metrics:
+Metrics Computation Script
+
+This script reads input from standard input (stdin) line by line and computes
+metrics based on the provided input format. The metrics include total file size
+and the number of lines for each valid status code. The results are printed
+every 10 lines or when a keyboard interruption (CTRL + C) occurs.
+
+Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
+
+Required Environment:
+- Ubuntu 14.04 LTS
+- Python 3.4.3
+- PEP 8 style (version 1.7.x)
+
+Usage: ./0-stats.py
+
+Author: Buomkuoth Yian
+Date: 20th July
 """
 import sys
 
 
 def print_stats(file_size, status_counts):
     """
-    Module that print stats
+    Print the computed statistics.
 
     Args:
-        file_size: total file size
-        status_counts: count number of status
+        file_size (int): The total file size.
+        status_counts (dict): A dictionary containing the count of each status code.
 
     Returns:
         None
@@ -23,7 +40,10 @@ def print_stats(file_size, status_counts):
 
 def main():
     """
-    main function
+    Main function to compute metrics from stdin input.
+
+    Returns:
+        None
     """
     total_file_size = 0
     status_counts = {}
