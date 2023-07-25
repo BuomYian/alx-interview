@@ -18,7 +18,7 @@ Required Environment:
 Usage: ./0-stats.py
 
 Author: Buomkuoth Yian
-Date: 25/07/2023
+Date: 25-07-2023
 """
 
 import sys
