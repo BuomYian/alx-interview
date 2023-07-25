@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Metrics Computation Script
 
@@ -13,11 +14,13 @@ Required Environment:
 - Ubuntu 14.04 LTS
 - Python 3.4.3
 - PEP 8 style (version 1.7.x)
+
 Usage: ./0-stats.py
 
 Author: Buomkuoth Yian
-Date: 20th July
+Date: 25/07/2023
 """
+
 import sys
 
 
@@ -50,8 +53,8 @@ def main():
     try:
         for line_count, line in enumerate(sys.stdin, 1):
             try:
-                _, _, _, status_code, file_size = line.split()[
-                    0], line.split()[-2], line.split()[-1]
+                _, _, _, _, status_code, file_size = line.split(
+                )[0], line.split()[-2], line.split()[-1]
                 file_size = int(file_size)
                 status_code = int(status_code)
             except ValueError:
@@ -67,6 +70,7 @@ def main():
                 print_stats(total_file_size, status_counts)
 
     except KeyboardInterrupt:
+        # Print statistics on keyboard interruption (CTRL + C)
         print_stats(total_file_size, status_counts)
         raise
 
