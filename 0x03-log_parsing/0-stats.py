@@ -13,7 +13,6 @@ Required Environment:
 - Ubuntu 14.04 LTS
 - Python 3.4.3
 - PEP 8 style (version 1.7.x)
-
 Usage: ./0-stats.py
 
 Author: Buomkuoth Yian
