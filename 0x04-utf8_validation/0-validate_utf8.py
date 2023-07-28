@@ -23,7 +23,7 @@ def validUTF8(data):
             return False
 
         # Determine the number of bytes in the character
-        if (byte >> 7) == 0:  # 1-byte character
+        if (byte >> 7) == 0:      # 1-byte character
             length = 1
         elif (byte >> 5) == 0b110:  # 2-byte character
             length = 2
