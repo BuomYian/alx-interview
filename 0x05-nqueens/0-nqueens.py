@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-A program that solve the N queens problem.
+The N queens puzzle is the challenge of placing N non-attacking queens on an NxN chessboard.
+Write a program that solves the N queens problem.
 """
 import sys
 
