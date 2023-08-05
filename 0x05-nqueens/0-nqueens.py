@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-The N queens puzzle is the challenge of placing N non-attacking queens on an NxN chessboard.
+The N queens puzzle is the challenge of placing N non-attacking
+queens on an NxN chessboard.
 Write a program that solves the N queens problem.
 """
 import sys
@@ -8,15 +9,18 @@ import sys
 
 def is_safe(board, row, col):
     """
-    Check if it is safe to place a queen at the given row and column in the board.
+    Check if it is safe to place a queen at the given row and
+    column in the board.
 
     Args:
-        board (list): The current state of the board with the position of queens.
+        board (list): The current state of the board with the
+        position of queens.
         row (int): The row where the queen is to be placed.
         col (int): The column where the queen is to be placed.
 
     Returns:
-        bool: True if it is safe to place the queen at the given position, False otherwise.
+        bool: True if it is safe to place the queen at the given position,
+        False otherwise.
     """
     for i in range(row):
         if board[i] == col or abs(board[i] - col) == abs(i - row):
@@ -29,12 +33,14 @@ def solve_nqueens(board, row, n):
     Recursively solve the N queens problem using backtracking.
 
     Args:
-        board (list): The current state of the board with the position of queens.
+        board (list): The current state of the board with the
+        position of queens.
         row (int): The current row being processed.
         n (int): The size of the chessboard (N).
 
     Prints:
-        All the possible solutions to the N queens problem in the required format.
+        All the possible solutions to the N queens problem in
+        the required format.
     """
     if row == n:
         print([[i, board[i]] for i in range(n)])
@@ -53,8 +59,10 @@ def nqueens(n):
         n (int): The size of the chessboard (N).
 
     Prints:
-        If N is not valid, it prints an error message and exits the program with status 1.
-        If N is valid, it prints all the possible solutions to the N queens problem.
+        If N is not valid, it prints an error message and
+        exits the program with status 1.
+        If N is valid, it prints all the possible solutions
+        to the N queens problem.
     """
     if not isinstance(n, int):
         print("N must be a number")
