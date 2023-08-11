@@ -1,21 +1,25 @@
 #!/usr/bin/node
 
 const request = require('request');
-const movieId = 'https://swapi-api.hbtn.io/api';
 
 if (process.argv.length > 2) {
-  request(`${movieId}/films/${process.argv[2]}/`, (err, _, body) => {
+  const movieId = process.argv[2];
+  const apiUrl = `https://swapi-api.hbtn.io/api/films/${movieId}/`;
+
+  request(apiUrl, (err, _, body) => {
     if (err) {
       console.log(err);
+      return;
     }
 
     const charactersUrl = JSON.parse(body).characters;
     const charactersName = charactersUrl.map(
       (url) =>
-        new promiseHooks((resolve, reject) => {
+        new Promise((resolve, reject) => {
           request(url, (promiseErr, __, charactersReqBody) => {
             if (promiseErr) {
               reject(promiseErr);
+              return;
             }
             resolve(JSON.parse(charactersReqBody).name);
           });
@@ -26,4 +30,6 @@ if (process.argv.length > 2) {
       .then((names) => console.log(names.join('\n')))
       .catch((allErr) => console.log(allErr));
   });
+} else {
+  console.log('Usage: ./0-starwars_characters.js <Movie ID>');
 }
