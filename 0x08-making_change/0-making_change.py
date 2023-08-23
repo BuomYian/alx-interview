@@ -12,18 +12,18 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    # Initialize an array to store the minimum number
-    # of coins needed for each amount from 1 to total
-    min_coins = [float('inf')] * (total + 1)
-    min_coins[0] = 0  # Zero coins needed to make change for 0
+    coins.sort(reverse=True)  # Sort coins in descending order
 
-    # Iterate through each coin value
+    coin_count = 0
+    remaining_total = total
+
     for coin in coins:
-        for amount in range(coin, total + 1):
-            min_coins[amount] = min(
-                min_coins[amount], min_coins[amount - coin] + 1)
+        if remaining_total >= coin:
+            num_coins = remaining_total // coin
+            coin_count += num_coins
+            remaining_total -= num_coins * coin
 
-    if min_coins[total] == float('inf'):
-        return -1  # Total cannot be met by any combination of coins
-
-    return min_coins[total]
+    if remaining_total == 0:
+        return coin_count
+    else:
+        return -1
