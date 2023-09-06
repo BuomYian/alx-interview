@@ -33,12 +33,10 @@ def isWinner(x, nums):
 
     Args:
         x (int): The number of rounds.
-        nums (list of int): An array of integers representing 'n' 
-                            for each round.
+        nums (list of int): An array of integers representing 'n'.
 
     Returns:
-        str or None: The name of the player that won the most 
-                        rounds (Maria, Ben), or None if the winner cannot be determined.
+        str or None: The name of the player that won the most rounds (Maria, Ben).
     """
     if not nums or x <= 0:
         return None
