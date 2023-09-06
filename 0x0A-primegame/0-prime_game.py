@@ -3,6 +3,15 @@
 
 # Helper function to check if a number is prime
 def is_prime(n):
+    """
+    Check if a number is prime.
+
+    Args:
+        n (int): The number to check.
+
+    Returns:
+        bool: True if the number is prime, False otherwise.
+    """
     if n <= 1:
         return False
     if n <= 3:
@@ -20,14 +29,16 @@ def is_prime(n):
 # Main function to determine the winner
 def isWinner(x, nums):
     """
-    Prime number game
+    Determine the winner of the prime number game.
 
     Args:
-        x: The number of rounds
-        nums: An array of n
+        x (int): The number of rounds.
+        nums (list of int): An array of integers representing 'n' 
+                            for each round.
 
     Returns:
-        Name of the player that won the most rounds
+        str or None: The name of the player that won the most 
+                        rounds (Maria, Ben), or None if the winner cannot be determined.
     """
     if not nums or x <= 0:
         return None
