@@ -19,6 +19,16 @@ def is_prime(n):
 
 
 def isWinner(x, nums):
+    """
+    Prime number game
+
+    Args:
+        x: The number of rounds
+        nums: An array of n
+
+    Returns:
+        Name of the player that won the most rounds
+    """
     if not nums or x <= 0:
         return None
 
