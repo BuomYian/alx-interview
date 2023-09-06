@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 # Helper function to check if a number is prime
 def is_prime(n):
     if n <= 1:
@@ -15,9 +16,8 @@ def is_prime(n):
         i += 6
     return True
 
+
 # Main function to determine the winner
-
-
 def isWinner(x, nums):
     """
     Prime number game
