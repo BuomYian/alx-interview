@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Prime game module
+"""
 
 
 # Helper function to check if a number is prime
