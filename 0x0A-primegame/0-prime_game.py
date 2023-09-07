@@ -1,68 +1,31 @@
 #!/usr/bin/python3
+"""Prime game module.
 """
-Prime game module
-"""
 
 
-# Helper function to check if a number is prime
-def is_prime(n):
-    """
-    Check if a number is prime.
-
-    Args:
-        n (int): The number to check.
-
-    Returns:
-        bool: True if the number is prime, False otherwise.
-    """
-    if n <= 1:
-        return False
-    if n <= 3:
-        return True
-    if n % 2 == 0 or n % 3 == 0:
-        return False
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i += 6
-    return True
-
-
-# Main function to determine the winner
 def isWinner(x, nums):
+    """Determines the winner of a prime game session with `x` rounds.
     """
-    Determine the winner of the prime number game.
+    if x < 1 or not nums:
+        return None
+    marias_wins, bens_wins = 0, 0
+    # generate primes with a limit of the maximum number in nums
+    n = max(nums)
+    primes = [True for _ in range(1, n + 1, 1)]
+    primes[0] = False
+    for i, is_prime in enumerate(primes, 1):
+        if i == 1 or not is_prime:
+            continue
+        for j in range(i + i, n + 1, i):
+            primes[j - 1] = False
 
-    Args:
-        x (int): The number of rounds.
-        nums (list of int): An array of integers representing 'n'.
+    # filter the number of primes less than n in nums for each round
+    for _, n in zip(range(x), nums):
+        primes_count = len(list(filter(lambda x: x, primes[0: n])))
+        bens_wins += primes_count % 2 == 0
+        marias_wins += primes_count % 2 == 1
 
-    Returns:
-        str or None: The name of the player that won the most rounds (Maria, Ben).
-    """
-    if not nums or x <= 0:
+    if marias_wins == bens_wins:
         return None
 
-    # Initialize counters for Maria and Ben's wins
-    maria_wins = 0
-    ben_wins = 0
-
-    # Iterate through each round
-    for n in nums:
-        # Count the number of prime numbers in the current round
-        prime_count = sum(1 for i in range(1, n + 1) if is_prime(i))
-
-        # Determine the winner of the round based on prime count parity
-        if prime_count % 2 == 0:
-            ben_wins += 1
-        else:
-            maria_wins += 1
-
-    # Compare the total wins and determine the overall winner
-    if maria_wins > ben_wins:
-        return "Maria"
-    elif ben_wins > maria_wins:
-        return "Ben"
-    else:
-        return None
+    return 'Maria' if marias_wins > bens_wins else 'Ben'
