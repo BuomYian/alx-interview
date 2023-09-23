@@ -53,8 +53,8 @@ def main():
     try:
         for line_count, line in enumerate(sys.stdin, 1):
             try:
-                _, _, _, _, status_code, file_size = line.split(
-                )[0], line.split()[-2], line.split()[-1]
+                _, _, _, _, status_code, file_size = line.split()[
+                    :1] + line.split()[-2:]
                 file_size = int(file_size)
                 status_code = int(status_code)
             except ValueError:
