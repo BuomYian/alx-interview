@@ -8,7 +8,7 @@ metrics based on the provided input format. The metrics include total file size
 and the number of lines for each valid status code. The results are printed
 every 10 lines or when a keyboard interruption (CTRL + C) occurs.
 
-Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" 
+Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
 <status code> <file size>
 
 Required Environment:
